@@ -21,6 +21,12 @@ public class CategoriaController {
         return repository.findAll();
     }
 
+    // AQUI 👇
+    @GetMapping("/{id}")
+    public Categoria buscarPorId(@PathVariable Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
     @PostMapping
     public Categoria salvar(@RequestBody Categoria categoria) {
         return repository.save(categoria);

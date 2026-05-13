@@ -21,6 +21,12 @@ public class AlimentosController {
         return repository.findAll();
     }
 
+    // AQUI 👇
+    @GetMapping("/{id}")
+    public Alimentos buscarPorId(@PathVariable Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
     @PostMapping
     public Alimentos salvar(@RequestBody Alimentos alimento) {
         return repository.save(alimento);
